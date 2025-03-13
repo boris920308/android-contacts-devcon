@@ -2,12 +2,16 @@ package devcon.contacts
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethod
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.Group
 import devcon.learn.contacts.R
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +21,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etName: EditText;
     private lateinit var btnSave: Button;
     private lateinit var btnCancel: Button;
+    private lateinit var groupMoreBtn: Group
+    private lateinit var groupMoreView: Group
+    private lateinit var viewMore: View
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         etMail = findViewById(R.id.et_mail)
         btnSave = findViewById(R.id.btn_save)
         btnCancel = findViewById(R.id.btn_cancel)
+        groupMoreBtn = findViewById(R.id.group_more_btn)
+        groupMoreView = findViewById(R.id.group_more_view)
+        viewMore = findViewById(R.id.view_more)
 
 
         btnSave.setOnClickListener {
@@ -43,6 +54,11 @@ class MainActivity : AppCompatActivity() {
 
         btnCancel.setOnClickListener {
             showToast(resources.getString(R.string.toast_cancel))
+        }
+
+        viewMore.setOnClickListener {
+            groupMoreBtn.visibility = View.GONE
+            groupMoreView.visibility = View.VISIBLE
         }
     }
 
