@@ -55,8 +55,79 @@
         app:layout_constraintStart_toStartOf="@id/et_name"
         app:layout_constraintTop_toBottomOf="@id/et_phone" />
 
+    <EditText
+        android:id="@+id/et_birthday"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/et_height"
+        android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@drawable/bg_et_hint"
+        android:hint="@string/hint_birthday"
+        android:inputType="time"
+        android:paddingHorizontal="@dimen/et_padding_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_mail" />
+
+    <EditText
+        android:id="@+id/et_gender"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/et_height"
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@drawable/bg_et_hint"
+        android:hint="@string/hint_gender"
+        android:inputType="phone"
+        android:paddingHorizontal="@dimen/et_padding_horizontal"
+        app:layout_constraintEnd_toEndOf="@id/et_name"
+        app:layout_constraintStart_toStartOf="@id/et_name"
+        app:layout_constraintTop_toBottomOf="@id/et_birthday" />
+
+    <EditText
+        android:id="@+id/et_note"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/et_height"
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@drawable/bg_et_hint"
+        android:hint="@string/hint_note"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="@dimen/et_padding_horizontal"
+        app:layout_constraintEnd_toEndOf="@id/et_name"
+        app:layout_constraintStart_toStartOf="@id/et_name"
+        app:layout_constraintTop_toBottomOf="@id/et_gender" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/et_gender"
+        app:layout_constraintEnd_toEndOf="@id/et_gender"
+        app:layout_constraintTop_toTopOf="@id/et_gender">
+
+        <RadioButton
+            android:id="@+id/radio_gender_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/radio_group_margin_end"
+            android:text="@string/female" />
+
+        <RadioButton
+            android:id="@+id/radio_gender_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/radio_group_margin_end"
+            android:text="@string/male" />
+    </RadioGroup>
+
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_more"
+        android:id="@+id/group_more_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="et_birthday, et_gender, et_note, radio_group_gender" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_more_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="tv_more,iv_more" />
@@ -82,6 +153,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_cancel" />
+
+    <View
+        android:id="@+id/view_more"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_more"
+        app:layout_constraintEnd_toEndOf="@id/iv_more"
+        app:layout_constraintStart_toStartOf="@id/tv_more"
+        app:layout_constraintTop_toTopOf="@id/tv_more" />
 
     <TextView
         android:id="@+id/tv_more"
