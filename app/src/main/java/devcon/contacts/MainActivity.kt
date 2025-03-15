@@ -4,10 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.icu.util.Calendar
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import android.view.inputmethod.InputMethod
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -18,11 +15,11 @@ import devcon.learn.contacts.R
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var etMail: EditText;
-    private lateinit var etPhone: EditText;
-    private lateinit var etName: EditText;
-    private lateinit var btnSave: Button;
-    private lateinit var btnCancel: Button;
+    private lateinit var etMail: EditText
+    private lateinit var etPhone: EditText
+    private lateinit var etName: EditText
+    private lateinit var btnSave: Button
+    private lateinit var btnCancel: Button
     private lateinit var groupMoreBtn: Group
     private lateinit var groupMoreView: Group
     private lateinit var viewMore: View
@@ -32,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initView()
+    }
+
+    private fun initView() {
         etName = findViewById(R.id.et_name)
         etPhone = findViewById(R.id.et_phone)
         etMail = findViewById(R.id.et_mail)
@@ -42,6 +43,10 @@ class MainActivity : AppCompatActivity() {
         viewMore = findViewById(R.id.view_more)
         etBirthday = findViewById(R.id.et_birthday)
 
+        initOnClickListener()
+    }
+
+    private fun initOnClickListener() {
 
         btnSave.setOnClickListener {
             if (isNameEmpty()) {
@@ -67,7 +72,6 @@ class MainActivity : AppCompatActivity() {
         etBirthday.setOnClickListener {
             showDatePickerDialog()
         }
-
     }
 
     private fun isNameEmpty(): Boolean {
@@ -83,7 +87,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showKeyboard(focusEditText: EditText) {
-        val inputMethodManager = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         focusEditText.requestFocus()
         inputMethodManager.showSoftInput(focusEditText, InputMethodManager.SHOW_IMPLICIT)
