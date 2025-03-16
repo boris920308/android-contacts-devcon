@@ -7,6 +7,21 @@
     android:layout_height="match_parent"
     tools:context="devcon.contacts.ListActivity">
 
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/scroll_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </ScrollView>
+
     <ImageView
         android:id="@+id/btn_add"
         android:layout_width="60dp"
