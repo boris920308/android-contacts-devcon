@@ -29,7 +29,7 @@ class ListActivity : AppCompatActivity() {
         val getData = ProfileSharedPreferences.getAllProfiles()
 
         getData.forEach {
-            profileAddView(it.name)
+            profileAddView(it)
         }
     }
 
@@ -47,16 +47,20 @@ class ListActivity : AppCompatActivity() {
         }
     }
 
-    private fun profileAddView(name: String) {
+    private fun profileAddView(profile: Profile) {
         val itemView = LayoutInflater.from(this)
             .inflate(R.layout.item_profile_list, scrollViewContainer, false)
 
         val tvName = itemView.findViewById<TextView>(R.id.tv_name)
         val tvImg = itemView.findViewById<TextView>(R.id.tv_profile_img)
 
-        tvName.text = name
-        tvImg.text = name.first().toString()
+        tvName.text = profile.name
+        tvImg.text = profile.name.first().toString()
 
         scrollViewContainer.addView(itemView)
+
+        itemView.setOnClickListener {
+            Utils.navigateToActivity(this, DetailActivity::class.java, profile)
+        }
     }
 }
