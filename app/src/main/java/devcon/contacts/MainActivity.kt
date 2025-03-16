@@ -86,6 +86,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 showToast(resources.getString(R.string.toast_save))
                 saveProfile()
+                Utils.navigateToActivity(this, ListActivity::class.java)
             }
         }
 
