@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         btnCancel.setOnClickListener {
             showToast(resources.getString(R.string.toast_cancel))
+            Utils.navigateToActivity(this, ListActivity::class.java)
         }
 
         viewMore.setOnClickListener {
